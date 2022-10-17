@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <locale.h>
-#define n 5
+#define n 2
 
 int main(void)
 {
@@ -13,20 +13,18 @@ int main(void)
 	ost(12, 5);
 	sravnC(2, 5);
 	CompareThree(3, 2, 5);
-	Swap(2, 4, 5);
-	return 0;
 
 	int* arr = calloc(n, sizeof(int));
 	for (size_t i = 0; i < n; i++)
 	{
 		arr[i] = i + 1;
 	}
-	arr = Swap(arr, 0, 4);
+	arr = Swap(arr, 0, 1);
 	for (size_t i = 0; i < n; i++)
 	{
 		printf("%d ", arr[i]);
 	}
-	putchar();
+	putchar('\n');
 }
 
 
@@ -251,9 +249,9 @@ int sravnC3(int a, int b, int c)
 	return d;
 }
 
-int* Swap(int* arr, int n, int n2 )
+int Swap(int* arr, int n1, int n2 )
 {
-	int a = arr[n]; 
+	int a = arr[n1]; 
 	int b = arr[n2];
 	__asm 
 	{
@@ -265,7 +263,7 @@ int* Swap(int* arr, int n, int n2 )
 		mov a, eax
 		mov b, ebx
 	}
-	arr[n] = a;
+	arr[n1] = a;
 	arr[n2] = b;
 	return arr;
 	printf("Ответ: %d\n", arr);
